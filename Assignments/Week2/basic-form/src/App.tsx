@@ -4,9 +4,18 @@ import './App.css'
 
 function App() {
 
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
   return (
     <>
-      <SignUpForm />
+    <button onClick={toggleForm}>Show Form</button>
+    {showForm === true && (
+      <SignUpForm onCustomClick={toggleForm} />
+    )}
     </>
   )
 }
